@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: second-level-cache
+  cache:
+    type: redis
+    host: 127.0.0.1
+    port: 6379
+    redis:
+      time-to-live: 60000    
+  datasource:
+    hikari:
+      connection-timeout: 600000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 10
+    url: jdbc:postgresql://192.168.8.101/book_catalog?reWriteBatchedInserts=true
+    username: subrutin
+    password: subrutin
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          batch_size: 100
+        order_inserts: true
+    show-sql: true
